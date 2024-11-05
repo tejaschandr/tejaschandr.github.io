@@ -1,1 +1,324 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8" /> <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <title>Tejas Chandra Portfolio</title> <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> <style> @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Crimson+Text:wght@400;600&display=swap'); :root { --bg-color: #f5f0eb; --second-bg-color: #695450; --text-color: #2b1810; --accent-color: #8b2f1c; --main-color: #4a1810; } * { margin: 0; padding: 0; box-sizing: border-box; text-decoration: none; border: none; outline: none; scroll-behavior: smooth; } body { font-family: 'Crimson Text', serif; background: var(--bg-color); color: var(--text-color); line-height: 1.6; } .main-container { display: flex; min-height: 100vh; } .left-section { position: sticky; top: 0; width: 40%; height: 100vh; padding: 2rem; background: var(--bg-color); display: flex; flex-direction: column; justify-content: center; align-items: center; } .right-section { width: 60%; background:var(--second-bg-color); padding: 2rem; } .header-image { width: 300px; height: 300px; max-width: fit-content; max-height: fit-content; border-radius: 50%; margin-bottom: 2rem; box-shadow: 0 4px 20px rgba(43, 24, 16, 0.2); } .home-content { text-align: center; } .home-content h1 { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--main-color); margin-bottom: 1rem; } .home-content h3 { font-size: 1.5rem; color: var(--accent-color); margin-bottom: 2rem; } .contact-info a { display: inline-flex; justify-content: center; align-items: center; width: 3.5rem; height: 3.5rem; background: var(--second-bg-color); border-radius: 50%; font-size: 1.5rem; color: var(--bg-color); margin: 0 0.5rem; transition: 0.3s ease; } .contact-info a:hover { background: var(--accent-color); transform: translateY(-3px); } .about-skills { padding: 4rem 2rem; color: var(--bg-color); } .heading { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 2rem; color: var(--bg-color); text-align: left; } .content { background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 10px; backdrop-filter: blur(5px); } .about-content p, .skills-content p { font-size: 1.1rem; margin: 1rem 0; color: var(--bg-color); } .skills-content h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 2rem 0 1rem; color: var(--bg-color); } .projects { padding: 4rem 2rem; background: var(--bg-color); } .projects .heading { color: var(--main-color); } .projects-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; list-style-type: none; } .repo-card { background: var(--second-bg-color); padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(43, 24, 16, 0.1); transition: 0.3s ease; color: var(--bg-color); } .repo-card h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1rem; } .repo-card:hover { transform: translateY(-5px); } .repo-stats { display: flex; justify-content: space-between; font-size: 0.9rem; margin: 1rem 0; opacity: 0.8; } .repo-link { display: inline-block; padding: 0.8rem 1.5rem; background: var(--accent-color); border-radius: 5px; color: var(--bg-color); font-size: 1rem; transition: 0.3s ease; } .repo-link:hover { background: var(--main-color); } @media (max-width: 1024px) { .main-container { flex-direction: column; } .left-section { width: 100%; height: auto; position: relative; } .right-section { width: 100%; } } .header-image { width: 400px; height: 500px; object-fit: cover; border-radius: 8px; margin-bottom: 2rem; box-shadow: 0 4px 20px rgba(43, 24, 16, 0.2); } .home-content h1 { font-size: 2.5rem; } .home-content h3 { font-size: 1.2rem; } </style> </head> <body> <div class="main-container"> <div class="left-section"> <div class="home-content"> <img src="/images/IMG_7462.jpg" alt="Tejas Chandra" class="header-image"> <h1>Tejas Chandra</h1> <h3>Software Developer | CS Student at UNC Chapel Hill</h3> <div class="contact-info"> <a href="https://www.linkedin.com/in/tejaschandra" target="_blank"><i class='bx bxl-linkedin'></i></a> <a href="https://github.com/tejaschandr" target="_blank"><i class='bx bxl-github'></i></a> </div> </div> </div> <div class="right-section"> <section class="about-skills"> <h2 class="heading">About Me</h2> <div class="content"> <div class="about-content"> <p>As a Computer Science student at <strong>UNC Chapel Hill</strong> (Class of 2026), I am passionate about software development. I am experienced in <strong>Python, Java, JavaScript</strong>, with projects spanning from backend systems to user interfaces.</p> <p>I have Intern experience as a <strong>Quantitative Analyst at Bank of America</strong>, as well as a <strong>Full Stack Developer at the Compass Center.</strong> I have coursework in <strong>machine learning, web development, backend development, and data analysis</strong>.</p> </div> <div class="skills-content"> <h3>Skills</h3> <p><strong>Languages:</strong> Python, Java, C++, JavaScript, TypeScript, C, Assembly, Elixir, Go, Erlang</p> <p><strong>Technologies:</strong> OpenCV, SciKit, Node.js, React, Next.js, Flask, CSS, Angular, PostgreSQL, BitBucket</p> <p><strong>Frameworks and Skillsets:</strong> SDLC, Agile Methodology, Sprint Development, Parallel Computing</p> </div> </div> </section> <section class="projects"> <h2 class="heading">Featured Projects</h2> <ul id="pinned-repos" class="projects-container"></ul> <h2 class="heading">Other Projects</h2> <ul id="other-repos" class="projects-container"></ul> </section> </div> </div> <script> // Fetch pinned repositories fetch('https://gh-pinned-repos.egoist.dev/?username=tejaschandr') .then(response => response.json()) .then(pinnedData => { const pinnedReposList = document.getElementById('pinned-repos'); pinnedData.forEach(repo => { const listItem = document.createElement('li'); listItem.className = 'repo-card'; listItem.innerHTML = ` <h3>${repo.repo}</h3> <p>${repo.description || 'No description available'}</p> <div class="repo-stats"> <span><i class="bx bx-code-alt"></i> ${repo.language || 'N/A'}</span> <span><i class="bx bx-star"></i> ${repo.stars}</span> </div> <a href="${repo.link}" class="repo-link" target="_blank">View Project</a> `; pinnedReposList.appendChild(listItem); }); // Fetch all repositories return fetch('https://api.github.com/users/tejaschandr/repos'); }) .then(response => response.json()) .then(allReposData => { const otherReposList = document.getElementById('other-repos'); allReposData.forEach(repo => { if (!document.querySelector(`#pinned-repos .repo-card h3:contains('${repo.name}')`)) { const listItem = document.createElement('li'); listItem.className = 'repo-card'; listItem.innerHTML = ` <h3>${repo.name}</h3> <p>${repo.description || 'No description available'}</p> <div class="repo-stats"> <span><i class="bx bx-code-alt"></i> ${repo.language || 'N/A'}</span> <span><i class="bx bx-star"></i> ${repo.stargazers_count}</span> </div> <a href="${repo.html_url}" class="repo-link" target="_blank">View Project</a> `; otherReposList.appendChild(listItem); } }); }); </script> </body> </html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tejas Chandra Portfolio</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
+      
+      :root {
+        --bg-color: #f5f0eb;
+        --second-bg-color: #695450;
+        --text-color: #2b1810;
+        --accent-color: #8b2f1c;
+        --main-color: #4a1810;
+      }
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        border: none;
+        outline: none;
+        scroll-behavior: smooth;
+      }
+      
+      body {
+        font-family: 'Crimson Text', serif;
+        background: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+      
+      .main-container {
+        display: flex;
+        min-height: 100vh;
+      }
+      
+      .left-section {
+        position: sticky;
+        top: 0;
+        width: 40%;
+        height: 100vh;
+        padding: 2rem;
+        background: var(--bg-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .right-section {
+        width: 60%;
+        background: var(--second-bg-color);
+        padding: 2rem;
+      }
+      
+      .header-image {
+        width: 300px;
+        height: 300px;
+        max-width: fit-content;
+        max-height: fit-content;
+        border-radius: 50%;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 20px rgba(43, 24, 16, 0.2);
+      }
+      
+      .home-content {
+        text-align: center;
+      }
+      
+      .home-content h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--main-color);
+        margin-bottom: 1rem;
+      }
+      
+      .home-content h3 {
+        font-size: 1.5rem;
+        color: var(--accent-color);
+        margin-bottom: 2rem;
+      }
+      
+      .contact-info a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 3.5rem;
+        height: 3.5rem;
+        background: var(--second-bg-color);
+        border-radius: 50%;
+        font-size: 1.5rem;
+        color: var(--bg-color);
+        margin: 0 0.5rem;
+        transition: 0.3s ease;
+      }
+      
+      .contact-info a:hover {
+        background: var(--accent-color);
+        transform: translateY(-3px);
+      }
+      
+      .about-skills {
+        padding: 4rem 2rem;
+        color: var(--bg-color);
+      }
+      
+      .heading {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        color: var(--bg-color);
+        text-align: left;
+      }
+      
+      .content {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 10px;
+        backdrop-filter: blur(5px);
+      }
+      
+      .about-content p,
+      .skills-content p {
+        font-size: 1.1rem;
+        margin: 1rem 0;
+        color: var(--bg-color);
+      }
+      
+      .skills-content h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.8rem;
+        margin: 2rem 0 1rem;
+        color: var(--bg-color);
+      }
+      
+      .projects {
+        padding: 4rem 2rem;
+        background: var(--bg-color);
+      }
+      
+      .projects .heading {
+        color: var(--main-color);
+      }
+      
+      .projects-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        list-style-type: none;
+      }
+      
+      .repo-card {
+        background: var(--second-bg-color);
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(43, 24, 16, 0.1);
+        transition: 0.3s ease;
+        color: var(--bg-color);
+      }
+      
+      .repo-card h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      .repo-card:hover {
+        transform: translateY(-5px);
+      }
+      
+      .repo-stats {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.9rem;
+        margin: 1rem 0;
+        opacity: 0.8;
+      }
+      
+      .repo-link {
+        display: inline-block;
+        padding: 0.8rem 1.5rem;
+        background: var(--accent-color);
+        border-radius: 5px;
+        color: var(--bg-color);
+        font-size: 1rem;
+        transition: 0.3s ease;
+      }
+      
+      .repo-link:hover {
+        background: var(--main-color);
+      }
+      
+      @media (max-width: 1024px) {
+        .main-container {
+          flex-direction: column;
+        }
+        
+        .left-section {
+          width: 100%;
+          height: auto;
+          position: relative;
+        }
+        
+        .right-section {
+          width: 100%;
+        }
+      }
+      
+      .header-image {
+        width: 400px;
+        height: 500px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 20px rgba(43, 24, 16, 0.2);
+      }
+      
+      .home-content h1 {
+        font-size: 2.5rem;
+      }
+      
+      .home-content h3 {
+        font-size: 1.2rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="main-container">
+      <div class="left-section">
+        <div class="home-content">
+          <img src="/images/IMG_7462.jpg" alt="Tejas Chandra" class="header-image">
+          <h1>Tejas Chandra</h1>
+          <h3>Software Developer | CS Student at UNC Chapel Hill</h3>
+          <div class="contact-info">
+            <a href="https://www.linkedin.com/in/tejaschandra" target="_blank"><i class='bx bxl-linkedin'></i></a>
+            <a href="https://github.com/tejaschandr" target="_blank"><i class='bx bxl-github'></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-section">
+        <section class="about-skills">
+          <h2 class="heading">About Me</h2>
+          <div class="content">
+            <div class="about-content">
+              <p>As a Computer Science student at <strong>UNC Chapel Hill</strong> (Class of 2026), I am passionate about software development. I am experienced in <strong>Python, Java, JavaScript</strong>, with projects spanning from backend systems to user interfaces.</p>
+              <p>I have Intern experience as a <strong>Quantitative Analyst at Bank of America</strong>, as well as a <strong>Full Stack Developer at the Compass Center.</strong> I have coursework in <strong>machine learning, web development, backend development, and data analysis</strong>.</p>
+            </div>
+            
+            <div class="skills-content">
+              <h3>Skills</h3>
+              <p><strong>Languages:</strong> Python, Java, C++, JavaScript, TypeScript, C, Assembly, Elixir, Go, Erlang</p>
+              <p><strong>Technologies:</strong> OpenCV, SciKit, Node.js, React, Next.js, Flask, CSS, Angular, PostgreSQL, BitBucket</p>
+              <p><strong>Frameworks and Skillsets:</strong> SDLC, Agile Methodology, Sprint Development, Parallel Computing</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="projects" id="projects">
+          <h2 class="heading">My Projects</h2>
+        
+          <h3>Featured Repos</h3>
+          <ul id="featured-repo-list" class="projects-container"></ul>
+        
+          <h3>Other Repos</h3>
+          <ul id="other-repo-list" class="projects-container"></ul>
+        </section>
+        
+        <script>
+          const popularRepos = [
+            { name: 'Connect3', url: 'https://github.com/tejaschandr/Connect3', description: 'Social Media Application based on the Six Degrees of Separation theory to promote close communities'},
+            { name: 'FastFlight', url: 'https://github.com/tejaschandr/FastFlight', description: 'MVC Structured web app that retrieves the earliest available international flight using Amadeus API for real time flight details, and Unsplash for destination images'},
+            { name: 'Web-Promotion-Classifier', url: 'https://github.com/tejaschandr/Web-Promotion-Classifier', description: 'Google Ad Promotion Classifier trained on 27,000+ Scraped Ads using SVM, Naive Bayes, and BERT.'}
+          ];
+        
+          function displayRepos(repos, container) {
+            repos.forEach(repo => {
+              const listItem = document.createElement('li');
+              listItem.className = 'repo-card';
+              listItem.innerHTML = `
+                <h3>${repo.name}</h3>
+                <p>${repo.description}</p>
+                <div class="repo-stats">
+
+                </div>
+                <a href="${repo.url}" class="repo-link" target="_blank">View Repository</a>
+              `;
+              container.appendChild(listItem);
+            });
+          }
+        
+          // Display the popular repos first in the featured repo section
+          const featuredRepoList = document.getElementById('featured-repo-list');
+          displayRepos(popularRepos, featuredRepoList);
+        
+          // Fetch and display the remaining repositories in the other repo section
+          fetch('https://api.github.com/users/tejaschandr/repos')
+            .then(response => response.json())
+            .then(data => {
+              const otherRepos = data.filter(repo => 
+                !popularRepos.some(popRepo => popRepo.name === repo.name) && repo.name !== 'tejaschandr.github.io'
+              ).map(repo => ({
+                name: repo.name,
+                url: repo.html_url,
+                description: repo.description || 'No description available',
+ 
+              }));
+              const otherRepoList = document.getElementById('other-repo-list');
+              displayRepos(otherRepos, otherRepoList);
+            })
+            .catch(error => console.error('Error fetching other repositories:', error));
+        </script>
+        
+      </div>
+    </div>
+  </body>
+</html>
