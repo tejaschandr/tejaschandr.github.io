@@ -250,16 +250,17 @@
           <h2 class="heading">About Me</h2>
           <div class="content">
             <div class="about-content">
-              <p>As a Computer Science student at <strong>UNC Chapel Hill</strong> (Class of 2026), I am passionate about software development. I am experienced in <strong>Python, Java, JavaScript</strong>, with projects spanning from backend systems to user interfaces.</p>
+              <p>As a Computer Science student at <strong>UNC Chapel Hill</strong> (Class of 2026), I am passionate about software development. I am most experienced in <strong>Python, Java, JavaScript</strong>, with projects spanning from backend systems to user interfaces.</p>
               <p>I have Intern experience as a <strong>Quantitative Analyst at Bank of America</strong>, as well as a <strong>Full Stack Developer at the Compass Center.</strong> I have coursework in <strong>machine learning, web development, backend development, and data analysis</strong>.</p>
             </div>
             
             <div class="skills-content">
-              <h3>Skills</h3>
-              <p><strong>Languages:</strong> Python, Java, C++, JavaScript, TypeScript, C, Assembly, Elixir, Go, Erlang</p>
-              <p><strong>Technologies:</strong> OpenCV, SciKit, Node.js, React, Next.js, Flask, CSS, Angular, PostgreSQL, BitBucket</p>
-              <p><strong>Frameworks and Skillsets:</strong> SDLC, Agile Methodology, Sprint Development, Parallel Computing</p>
-            </div>
+              <h3>Technical Expertise</h3>
+              <p><strong>Core Languages:</strong> Python, JavaScript (TypeScript), C++, Java, Go, Elixir</p>
+              <p><strong>Web Technologies:</strong> React, Next.js, Node.js, Flask, Angular, TailwindCSS</p>
+              <p><strong>Data & ML:</strong> SciKit Learn, BERT, PostgreSQL, XGBoost, REST APIs</p>
+              <p><strong>Development Practices:</strong> SDLC, Agile/Scrum, CI/CD, MVC Architecture</p>
+          </div>
           </div>
         </section>
 
@@ -296,11 +297,9 @@
             });
           }
         
-          // Display the popular repos first in the featured repo section
           const featuredRepoList = document.getElementById('featured-repo-list');
           displayRepos(popularRepos, featuredRepoList);
         
-          // Fetch and display the remaining repositories in the other repo section
           fetch('https://api.github.com/users/tejaschandr/repos')
             .then(response => response.json())
             .then(data => {
